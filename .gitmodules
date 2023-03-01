@@ -1,0 +1,6 @@
+[submodule "service_registry/service_registry.service/service_registry.service.initializer/src/main/resources/init-private"]
+	path = service_registry/service_registry.service/service_registry.service.initializer/src/main/resources/init-private
+	url = https://gitlab.cc-asp.fraunhofer.de/cloud-edge-deployment/fabos-slm-service-registry-content-private.git
+[submodule "service_registry/service_registry.service/service_registry.service.initializer/src/main/resources/init-public"]
+	path = service_registry/service_registry.service/service_registry.service.initializer/src/main/resources/init-public
+	url = https://github.com/FabOS-AI/fabos-slm-service-registry-content.git

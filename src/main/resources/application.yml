@@ -1,0 +1,42 @@
+server:
+    port: 8051
+
+spring:
+    application:
+        name: awx_jwt_proxy
+    banner:
+        location: banner.txt
+    security:
+      user:
+          name: admin
+          password: password
+
+keycloak:
+    auth-server-url: http://my-fabos.local:7080/auth
+    realm: fabos
+    resource: awx-jwt-authenticator
+    credentials:
+        secret: GQbe1IJdQNmuMcZZrxJWB1kKMPdnNca3
+    use-resource-role-mappings: false
+    bearer-only: true
+
+awx:
+    host: my-fabos.local
+    scheme: http
+    port: 80
+    username: awx-jwt-authenticator
+    password: password
+    organization-name: Service Lifecycle Management
+    team-name: user
+
+vault:
+    scheme: http
+    host: my-fabos.local
+    port: 8200
+    authentication: APPROLE
+    token: s.t8H97SyHrPpHfLODxuIndeJ6
+    app-role:
+        app-role-path: approle
+        role-id: awx-jwt-authenticator
+        secret-id: d6cc25f0-ce1a-c49e-4cda-5f39ce5a02ba
+    kv-mount-path: awx-jwt-authenticator

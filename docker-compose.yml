@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+
+  awx-jwt-authenticator:
+    image: registry.gitlab.cc-asp.fraunhofer.de/cloud-edge-deployment/core/ansible-awx-jwt-authenticator:1.2.0-SNAPSHOT
+    build: .

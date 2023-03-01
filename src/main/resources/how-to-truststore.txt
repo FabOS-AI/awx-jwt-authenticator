@@ -1,0 +1,4 @@
+keytool -import -file vfk_root_ca.crt -alias vfk_root_ca -keystore trustStore
+
+1. Copy Truststore into Docker Image
+2. Run app with: java -Djavax.net.ssl.trustStore=/app/trustStore -jar /app/app.jar
