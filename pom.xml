@@ -61,7 +61,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <docker.image.registry>fabos4ai</docker.image.registry>
-        <docker.image.skip>true</docker.image.skip>
+        <docker.image.skip>false</docker.image.skip>
     </properties>
 
     <dependencyManagement>
@@ -586,6 +586,8 @@
                     <contextDirectory>.</contextDirectory>
                     <skipDockerInfo>true</skipDockerInfo>
                     <skip>${docker.image.skip}</skip>
+                    <username>${env.DOCKER_REGISTRY_USERNAME}</username>
+                    <password>${env.DOCKER_HUB_TOKEN}</password>
                 </configuration>
                 <dependencies>
                     <dependency>
