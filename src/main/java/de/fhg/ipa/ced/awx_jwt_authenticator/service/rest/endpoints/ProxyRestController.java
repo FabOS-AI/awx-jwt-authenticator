@@ -1,6 +1,6 @@
 package de.fhg.ipa.ced.awx_jwt_authenticator.service.rest.endpoints;
 
-import de.fhg.ipa.ced.common.awx.model.*;
+import de.fhg.ipa.ced.awx_jwt_authenticator.awx.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.representations.AccessToken;
