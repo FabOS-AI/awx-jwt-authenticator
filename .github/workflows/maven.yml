@@ -27,7 +27,6 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
-        server-id: NEXUS_REPOSITORY_SNAPSHOTS
     - name: Login to Docker
       run: echo ${{secrets.DOCKER_REGISTRY_PASSWORD}} | docker login -u${{secrets.DOCKER_REGISTRY_USERNAME}} --password-stdin
     - name: Build with Maven
