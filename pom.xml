@@ -586,8 +586,6 @@
                     <contextDirectory>.</contextDirectory>
                     <skipDockerInfo>true</skipDockerInfo>
                     <skip>${docker.image.skip}</skip>
-                    <username>${env.DOCKER_REGISTRY_USERNAME}</username>
-                    <password>${env.DOCKER_HUB_TOKEN}</password>
                 </configuration>
                 <dependencies>
                     <dependency>

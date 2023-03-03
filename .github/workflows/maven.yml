@@ -27,10 +27,9 @@ jobs:
         java-version: '19'
         distribution: 'temurin'
         cache: maven
+    - name: Login to Docker
+      run: echo ${{secrets.DOCKER_REGISTRY_PASSWORD}} | docker login -u${{secrets.DOCKER_REGISTRY_USERNAME}} --password-stdin
     - name: Build with Maven
-      env:
-        DOCKER_REGISTRY_USERNAME: ${{secrets.DOCKER_REGISTRY_USERNAME}}
-        DOCKER_HUB_TOKEN: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
       run: mvn -B deploy --file pom.xml
       
 
