@@ -155,11 +155,11 @@
         </dependency>
 
         <!-- Serialization !-->
-        <!--<dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
             <version>${jackson.version}</version>
-        </dependency>-->
+        </dependency>
         <!-- Testing !-->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
@@ -237,9 +237,6 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-
-
-
 
         <!-- Keycloak !-->
         <dependency>

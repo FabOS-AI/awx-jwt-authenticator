@@ -1,5 +1,8 @@
 package de.fhg.ipa.ced.awx_jwt_authenticator.service.rest.endpoints;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.kotlin.KotlinModule;
 import de.fhg.ipa.ced.awx_jwt_authenticator.awx.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.keycloak.KeycloakPrincipal;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.codec.json.Jackson2JsonDecoder;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.vault.core.VaultKeyValueOperations;
 import org.springframework.vault.core.VaultKeyValueOperationsSupport;
@@ -21,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.util.retry.Retry;
@@ -77,8 +82,16 @@ public class ProxyRestController {
                 this.vaultKvMountPath,
                 VaultKeyValueOperationsSupport.KeyValueBackend.KV_2);
 
+        final ObjectMapper mapper = new ObjectMapper()
+                .registerModule(new KotlinModule());
+        final ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
+                .codecs(configurer -> configurer.defaultCodecs()
+                        .jackson2JsonDecoder(new Jackson2JsonDecoder(mapper)))
+                .build();
+
         this.awxWebClient = WebClient.builder()
                 .baseUrl(awxBaseUrl)
+                .exchangeStrategies(exchangeStrategies)
                 .build();
 
         if(!checkOrganizationExists(this.organizationName)) {
