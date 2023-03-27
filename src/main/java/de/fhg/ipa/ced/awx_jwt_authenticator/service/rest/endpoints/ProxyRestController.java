@@ -83,7 +83,8 @@ public class ProxyRestController {
                 VaultKeyValueOperationsSupport.KeyValueBackend.KV_2);
 
         final ObjectMapper mapper = new ObjectMapper()
-                .registerModule(new KotlinModule());
+                .registerModule(new KotlinModule())
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         final ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
                 .codecs(configurer -> configurer.defaultCodecs()
                         .jackson2JsonDecoder(new Jackson2JsonDecoder(mapper)))
