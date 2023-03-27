@@ -1,4 +1,4 @@
-package de.fhg.ipa.ced.awx_jwt_authenticator.awx.model.tests;
+package de.fhg.ipa.ced.awx_jwt_authenticator;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
