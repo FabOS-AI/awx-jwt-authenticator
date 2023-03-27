@@ -8,8 +8,8 @@ done
 
 # Wait until Vault is running
 export VAULT_TOKEN="UnusedDummyToken"
-VAULT_ROLEID_FILE=/opt/vault/awx-jwt-proxy/role_id
-VAULT_SECRETID_FILE=/opt/vault/awx-jwt-proxy/secret_id
+VAULT_ROLEID_FILE=/opt/vault/awx-jwt-authenticator/role_id
+VAULT_SECRETID_FILE=/opt/vault/awx-jwt-authenticator/secret_id
 until [ -f "$VAULT_ROLEID_FILE" ]; do
   echo "Vault is not initialized - sleeping"
   sleep 3

@@ -3,7 +3,7 @@ server:
 
 spring:
     application:
-        name: awx_jwt_proxy
+        name: awx-jwt-authenticator
     banner:
         location: banner.txt
     security:

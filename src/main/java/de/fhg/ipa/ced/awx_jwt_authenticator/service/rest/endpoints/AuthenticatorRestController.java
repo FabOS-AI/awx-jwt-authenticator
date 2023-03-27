@@ -39,9 +39,9 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("/token")
-public class ProxyRestController {
+public class AuthenticatorRestController {
 
-    Logger logger = LoggerFactory.getLogger(ProxyRestController.class);
+    Logger logger = LoggerFactory.getLogger(AuthenticatorRestController.class);
 
     WebClient awxWebClient;
 
